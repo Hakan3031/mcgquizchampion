@@ -26,7 +26,6 @@ public class GUI_Start extends JFrame {
 	private JTextField textFieldnamespieler1;
 	private JTextField textField_1namespieler2;
 	private JTextField textField_2namespieler3;
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -66,22 +65,48 @@ public class GUI_Start extends JFrame {
 		contentPane.add(lblTitel);
 		
 		btnStart = new JButton("Start");
+		btnStart.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("btnStart gedrückt");
+				Hauptklasse.setSpielername1(textFieldnamespieler1.getText());
+				Hauptklasse.setSpielername2(textField_1namespieler2.getText());
+				Hauptklasse.setSpielername3(textField_2namespieler3.getText());
+
+				
+			}
+		});
 		btnStart.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnStart.setForeground(Color.BLUE);
 		btnStart.setBounds(844, 690, 118, 61);
 		contentPane.add(btnStart);
 		
-		btnSpieler1 = new JButton("Spieler 1");
+	    btnSpieler1 = new JButton("Spieler 1");
+		btnSpieler1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			System.out.println("btnSpieler1 gedrückt");
+			Hauptklasse.setSpielerzahlen(1);
+			}
+		});
 		btnSpieler1.setBounds(60, 200, 89, 23);
 		contentPane.add(btnSpieler1);
 		
 		btnSpieler2 = new JButton("Spieler 2");
+		btnSpieler2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("btnSpieler2 gedrückt");
+				Hauptklasse.setSpielerzahlen(2);
+				
+			}
+		});
 		btnSpieler2.setBounds(60, 332, 89, 23);
 		contentPane.add(btnSpieler2);
 		
+
 		btnSpieler3 = new JButton("Spieler 3");
 		btnSpieler3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("btnSpieler3 gedrückt");
+				Hauptklasse.setSpielerzahlen(3);
 			}
 		});
 		btnSpieler3.setBounds(60, 462, 89, 23);
@@ -101,11 +126,6 @@ public class GUI_Start extends JFrame {
 		textField_2namespieler3.setBounds(60, 496, 96, 20);
 		contentPane.add(textField_2namespieler3);
 		textField_2namespieler3.setColumns(10);
-		
-		textField = new JTextField();
-		textField.setBounds(60, 265, 96, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setBounds(60, 415, 96, 20);
